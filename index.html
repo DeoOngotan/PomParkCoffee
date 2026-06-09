@@ -6,11 +6,9 @@
   <meta name="description" content="Pompark - 프리미엄 리베리카 커피. 희귀한 원두, 섬세한 로스팅, 특별한 커피 경험." />
   <title>Pompark Coffee — 프리미엄 리베리카 커피</title>
 
-  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  
   <!-- Google Fonts: Korean + Serif -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -604,76 +602,218 @@
 <!-- ═══════════════════════════════════════════════════ -->
 <section id="products" class="py-28 px-6 bg-ivory">
   <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
+
+    <!-- Heading -->
+    <div class="text-center mb-12">
       <p class="section-label mb-4 reveal">Our Collection</p>
       <span class="gold-line mb-6 reveal"></span>
       <h2 class="section-title text-espresso text-4xl md:text-5xl mt-6 reveal delay-100">
         시그니처 컬렉션
       </h2>
+      <p class="text-espresso/60 font-sans font-light text-sm mt-4 reveal delay-200">
+        인스턴트 커피와 로스팅 커피 — 팩과 보틀로 만나는 리베리카의 두 얼굴
+      </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Product 1 -->
-      <div class="product-card relative group cursor-pointer reveal delay-100">
+    <!-- Category Tabs -->
+    <div class="flex items-center justify-center gap-0 mb-12 reveal delay-300">
+      <button
+        id="tab-all"
+        class="product-tab active-tab px-7 py-3 text-xs tracking-[0.2em] uppercase font-sans font-medium border border-espresso bg-espresso text-cream transition-all duration-300"
+        onclick="filterProducts('all', this)"
+      >전체</button>
+      <button
+        id="tab-instant"
+        class="product-tab px-7 py-3 text-xs tracking-[0.2em] uppercase font-sans font-medium border border-espresso text-espresso hover:bg-espresso hover:text-cream transition-all duration-300"
+        onclick="filterProducts('instant', this)"
+      >인스턴트 커피</button>
+      <button
+        id="tab-roasted"
+        class="product-tab px-7 py-3 text-xs tracking-[0.2em] uppercase font-sans font-medium border border-espresso text-espresso hover:bg-espresso hover:text-cream transition-all duration-300"
+        onclick="filterProducts('roasted', this)"
+      >로스팅 커피</button>
+    </div>
+
+    <!-- ── INSTANT COFFEE category label ── -->
+    <div class="instant-label flex items-center gap-4 mb-6 reveal">
+      <span class="origin-line"></span>
+      <span class="text-gold text-[10px] tracking-[0.4em] uppercase">Instant Coffee</span>
+      <span class="origin-line"></span>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="product-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- ── INSTANT 1: Classic Pack ── -->
+      <div class="product-card relative group cursor-pointer reveal delay-100" data-category="instant">
         <div class="relative overflow-hidden aspect-[3/4]">
           <img
-            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&q=80"
-            alt="싱글 오리진 리베리카"
+            src="product-instant-classic-pack.png"
+            alt="폼팍 인스턴트 클래식 팩"
             class="w-full h-full object-cover"
           />
           <div class="overlay"></div>
+          <!-- Type badge -->
+          <div class="absolute top-4 left-4 bg-espresso/80 backdrop-blur-sm text-gold text-[9px] font-bold tracking-widest px-3 py-1 uppercase border border-gold/30">
+            Pack · 10개입
+          </div>
           <div class="absolute bottom-0 left-0 right-0 p-6">
-            <p class="text-gold text-xs tracking-widest uppercase mb-1">Single Origin</p>
-            <h3 class="text-cream font-serif text-xl font-light mb-2">필리핀 싱글 오리진</h3>
-            <p class="text-cream/60 text-xs leading-5 mb-4">재스민 · 피치 · 다크 초콜릿</p>
-            <p class="text-gold font-latin text-lg">₩ 38,000 <span class="text-cream/50 text-xs">/200g</span></p>
+            <p class="text-gold text-xs tracking-widest uppercase mb-1">Instant · Classic</p>
+            <h3 class="text-cream font-serif text-xl font-light mb-2">클래식 인스턴트 팩</h3>
+            <p class="text-cream/60 text-xs leading-5 mb-1">리베리카 100% · 설탕 無</p>
+            <p class="text-cream/50 text-[10px] leading-5 mb-4">개당 2g 스틱 팩 × 10개 — 언제 어디서나 즉시 완성</p>
+            <div class="flex items-end justify-between">
+              <p class="text-gold font-latin text-lg">₩ 18,000 <span class="text-cream/50 text-xs">/10팩</span></p>
+              <span class="text-gold/60 text-[10px] tracking-wider uppercase">→ 담기</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Product 2 -->
-      <div class="product-card relative group cursor-pointer reveal delay-200">
+      <!-- ── INSTANT 2: Signature Sachet Box ── -->
+      <div class="product-card relative group cursor-pointer reveal delay-200" data-category="instant">
         <div class="relative overflow-hidden aspect-[3/4]">
           <img
-            src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=600&q=80"
-            alt="블렌드 에스프레소"
+            src="product-instant-box.png"
+            alt="시그니처 인스턴트 박스"
             class="w-full h-full object-cover"
           />
           <div class="overlay"></div>
-          <!-- Badge -->
+          <!-- Best badge -->
           <div class="absolute top-4 right-4 bg-gold text-espresso text-[10px] font-bold tracking-widest px-3 py-1 uppercase">
             Best
           </div>
+          <div class="absolute top-4 left-4 bg-espresso/80 backdrop-blur-sm text-gold text-[9px] font-bold tracking-widest px-3 py-1 uppercase border border-gold/30">
+            Box · 30개입
+          </div>
           <div class="absolute bottom-0 left-0 right-0 p-6">
-            <p class="text-gold text-xs tracking-widest uppercase mb-1">Signature Blend</p>
-            <h3 class="text-cream font-serif text-xl font-light mb-2">폼팍 시그니처 블렌드</h3>
-            <p class="text-cream/60 text-xs leading-5 mb-4">카라멜 · 우드 · 플로럴</p>
-            <p class="text-gold font-latin text-lg">₩ 45,000 <span class="text-cream/50 text-xs">/200g</span></p>
+            <p class="text-gold text-xs tracking-widest uppercase mb-1">Instant · Signature</p>
+            <h3 class="text-cream font-serif text-xl font-light mb-2">시그니처 인스턴트 박스</h3>
+            <p class="text-cream/60 text-xs leading-5 mb-1">재스민 · 카라멜 노트</p>
+            <p class="text-cream/50 text-[10px] leading-5 mb-4">고급 선물 박스 패키지 · 30개 스틱 — 가장 인기 있는 선물 세트</p>
+            <div class="flex items-end justify-between">
+              <p class="text-gold font-latin text-lg">₩ 42,000 <span class="text-cream/50 text-xs">/박스</span></p>
+              <span class="text-gold/60 text-[10px] tracking-wider uppercase">→ 담기</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Product 3 -->
-      <div class="product-card relative group cursor-pointer reveal delay-300">
+      <!-- ── INSTANT 3: Iced Bottle (RTD) ── -->
+      <div class="product-card relative group cursor-pointer reveal delay-300" data-category="instant">
         <div class="relative overflow-hidden aspect-[3/4]">
           <img
-            src="https://images.unsplash.com/photo-1504630083234-14187a9df0f5?w=600&q=80"
-            alt="말레이시아 리베리카"
+            src="product-instant-bottle.png"
+            alt="인스턴트 아이스 보틀"
             class="w-full h-full object-cover"
           />
           <div class="overlay"></div>
+          <div class="absolute top-4 left-4 bg-espresso/80 backdrop-blur-sm text-gold text-[9px] font-bold tracking-widest px-3 py-1 uppercase border border-gold/30">
+            Bottle · 500ml
+          </div>
           <div class="absolute bottom-0 left-0 right-0 p-6">
-            <p class="text-gold text-xs tracking-widest uppercase mb-1">Reserve</p>
-            <h3 class="text-cream font-serif text-xl font-light mb-2">말레이시아 리저브</h3>
-            <p class="text-cream/60 text-xs leading-5 mb-4">망고 · 담배잎 · 바닐라</p>
-            <p class="text-gold font-latin text-lg">₩ 58,000 <span class="text-cream/50 text-xs">/200g</span></p>
+            <p class="text-gold text-xs tracking-widest uppercase mb-1">Instant · Iced</p>
+            <h3 class="text-cream font-serif text-xl font-light mb-2">아이스 인스턴트 보틀</h3>
+            <p class="text-cream/60 text-xs leading-5 mb-1">냉수에 바로 타는 인스턴트 분말</p>
+            <p class="text-cream/50 text-[10px] leading-5 mb-4">500ml 보틀 패키지 · 재사용 가능 용기 — 차갑게 즐기는 리베리카</p>
+            <div class="flex items-end justify-between">
+              <p class="text-gold font-latin text-lg">₩ 24,000 <span class="text-cream/50 text-xs">/보틀</span></p>
+              <span class="text-gold/60 text-[10px] tracking-wider uppercase">→ 담기</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <!-- ── ROASTED category label (spans full width) ── -->
+      <div class="roasted-label lg:col-span-3 md:col-span-2 flex items-center gap-4 mt-4 mb-2 reveal">
+        <span class="origin-line"></span>
+        <span class="text-gold text-[10px] tracking-[0.4em] uppercase">Roasted Coffee</span>
+        <span class="origin-line"></span>
+      </div>
+
+      <!-- ── ROASTED 1: Whole Bean Pack ── -->
+      <div class="product-card relative group cursor-pointer reveal delay-100" data-category="roasted">
+        <div class="relative overflow-hidden aspect-[3/4]">
+          <img
+            src="product-roasted-wholebean-pack.png"
+            alt="홀빈 로스팅 팩"
+            class="w-full h-full object-cover"
+          />
+          <div class="overlay"></div>
+          <div class="absolute top-4 left-4 bg-espresso/80 backdrop-blur-sm text-gold text-[9px] font-bold tracking-widest px-3 py-1 uppercase border border-gold/30">
+            Pack · 200g
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <p class="text-gold text-xs tracking-widest uppercase mb-1">Roasted · Whole Bean</p>
+            <h3 class="text-cream font-serif text-xl font-light mb-2">필리핀 홀빈 팩</h3>
+            <p class="text-cream/60 text-xs leading-5 mb-1">재스민 · 피치 · 다크 초콜릿</p>
+            <p class="text-cream/50 text-[10px] leading-5 mb-4">밸브 밀봉 크라프트 팩 200g — 로스팅 후 72시간 이내 발송</p>
+            <div class="flex items-end justify-between">
+              <p class="text-gold font-latin text-lg">₩ 38,000 <span class="text-cream/50 text-xs">/200g</span></p>
+              <span class="text-gold/60 text-[10px] tracking-wider uppercase">→ 담기</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ROASTED 2: Ground Coffee Pack ── -->
+      <div class="product-card relative group cursor-pointer reveal delay-200" data-category="roasted">
+        <div class="relative overflow-hidden aspect-[3/4]">
+          <img
+            src="product-roasted-ground-pack.png"
+            alt="그라운드 커피 팩"
+            class="w-full h-full object-cover"
+          />
+          <div class="overlay"></div>
+          <div class="absolute top-4 left-4 bg-espresso/80 backdrop-blur-sm text-gold text-[9px] font-bold tracking-widest px-3 py-1 uppercase border border-gold/30">
+            Pack · 200g
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <p class="text-gold text-xs tracking-widest uppercase mb-1">Roasted · Ground</p>
+            <h3 class="text-cream font-serif text-xl font-light mb-2">말레이시아 그라운드 팩</h3>
+            <p class="text-cream/60 text-xs leading-5 mb-1">망고 · 담배잎 · 바닐라</p>
+            <p class="text-cream/50 text-[10px] leading-5 mb-4">드립용 분쇄 200g 팩 — 핸드드립 최적 입자 조절</p>
+            <div class="flex items-end justify-between">
+              <p class="text-gold font-latin text-lg">₩ 40,000 <span class="text-cream/50 text-xs">/200g</span></p>
+              <span class="text-gold/60 text-[10px] tracking-wider uppercase">→ 담기</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ROASTED 3: Cold Brew Bottle ── -->
+      <div class="product-card relative group cursor-pointer reveal delay-300" data-category="roasted">
+        <div class="relative overflow-hidden aspect-[3/4]">
+          <img
+            src="bottle.jpg"
+            alt="콜드브루 로스팅 보틀"
+            class="w-full h-full object-cover"
+          />
+          <div class="overlay"></div>
+          <!-- New badge -->
+          <div class="absolute top-4 right-4 bg-gold text-espresso text-[10px] font-bold tracking-widest px-3 py-1 uppercase">
+            New
+          </div>
+          <div class="absolute top-4 left-4 bg-espresso/80 backdrop-blur-sm text-gold text-[9px] font-bold tracking-widest px-3 py-1 uppercase border border-gold/30">
+            Bottle · 330ml
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <p class="text-gold text-xs tracking-widest uppercase mb-1">Roasted · Cold Brew</p>
+            <h3 class="text-cream font-serif text-xl font-light mb-2">리베리카 콜드브루 보틀</h3>
+            <p class="text-cream/60 text-xs leading-5 mb-1">48시간 저온 추출 · 무가당</p>
+            <p class="text-cream/50 text-[10px] leading-5 mb-4">고급 유리 보틀 330ml — 선물용 · 즉시 음용 가능</p>
+            <div class="flex items-end justify-between">
+              <p class="text-gold font-latin text-lg">₩ 16,000 <span class="text-cream/50 text-xs">/보틀</span></p>
+              <span class="text-gold/60 text-[10px] tracking-wider uppercase">→ 담기</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /product-grid -->
 
     <div class="text-center mt-14 reveal">
-      <a href="#contact" class="btn-solid inline-block">전체 컬렉션 보기</a>
+      <a href="#contact" class="btn-solid inline-block">전체 컬렉션 문의하기</a>
     </div>
   </div>
 </section>
@@ -1479,6 +1619,40 @@ if (productGrid) {
   cardObserver.observe(productGrid);
 }
 
+
+/* ══════════════════════════════
+   PRODUCT CATEGORY TABS FILTER
+   ══════════════════════════════ */
+function filterProducts(category, clickedBtn) {
+  /* Update tab styles */
+  document.querySelectorAll('.product-tab').forEach(btn => {
+    btn.classList.remove('bg-espresso', 'text-cream');
+    btn.classList.add('text-espresso');
+  });
+  clickedBtn.classList.add('bg-espresso', 'text-cream');
+  clickedBtn.classList.remove('text-espresso');
+
+  const cards        = document.querySelectorAll('#product-grid .product-card');
+  const instantLabel = document.querySelector('.instant-label');
+  const roastedLabel = document.querySelector('.roasted-label');
+
+  cards.forEach(card => {
+    const cat = card.getAttribute('data-category');
+    const match = category === 'all' || cat === category;
+    card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    if (match) {
+      card.style.display = '';
+      setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 10);
+    } else {
+      card.style.opacity = '0'; card.style.transform = 'translateY(20px)';
+      setTimeout(() => { card.style.display = 'none'; }, 420);
+    }
+  });
+
+  /* Show/hide category section labels */
+  if (instantLabel) instantLabel.style.display = (category === 'roasted') ? 'none' : '';
+  if (roastedLabel) roastedLabel.style.display  = (category === 'instant') ? 'none' : '';
+}
 
 /* ══════════════════════════════
    FLOATING HIGHLIGHT ON HERO BTNs
